@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WeatherJS 🌤️
 
-## Getting Started
+WeatherJS is a modern, component-driven weather dashboard built using **Next.js** and **React**. It fetches real-time meteorological data and provides users with a clean, modular interface to check current conditions anywhere in the world.
 
-First, run the development server:
+## 🚀 Features
+
+* **Auto-Geolocation:** Automatically requests browser location on load to fetch and display the user's local weather immediately.
+* **City Search:** Includes a functional search bar allowing users to find weather data by typing a city name and pressing `Enter` or clicking search.
+* **Comprehensive Metrics:** Breaks down weather data into clean, readable cards:
+  * Location Details (City, Region, Country)
+  * Temperature
+  * Humidity
+  * Wind Speed
+  * Overall Conditions
+* **Component-Based Architecture:** Built with highly modular React components for easy maintenance and scalability.
+
+## 🛠️ Technologies Used
+
+* **Framework:** [Next.js](https://nextjs.org/) (v16.1.6)
+* **Library:** [React](https://react.dev/) (v19.2.3)
+* **Styling:** CSS Modules
+* **API:** [WeatherAPI](https://www.weatherapi.com/)
+
+## 📂 Project Structure
+
+```text
+/src
+├── app
+│   ├── page.jsx                # Main application logic & API fetching
+│   └── page.module.css         # Main layout styling
+└── Components
+    ├── ConditionCard
+    ├── HumidityCard
+    ├── LocationCard            # Displays Name, Region, Country
+    ├── SearchBar               # Input field and search button
+    ├── TemperatureCard
+    └── WindSpeedCard
+
+```
+
+## 🔧 Getting Started
+
+First, install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) with your browser to see the result. Allow the browser to access your location to see local weather data.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ⚠️ Important Note on Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Currently, the WeatherAPI key is hardcoded into the `fetch` URLs in `page.jsx`. For production deployments, it is highly recommended to move this key into a `.env.local` file to keep it secure and out of public repositories.
 
-## Learn More
+## 🤝 Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Made with ❤️ by Adrian Ablaza
