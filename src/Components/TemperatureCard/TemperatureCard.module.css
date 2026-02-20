@@ -1,0 +1,15 @@
+.card {
+    width: 27%;
+    height: 100%;
+    border-radius: 0px 20px 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6366F1;
+}
+
+.tempText {
+    font-size: 120px;
+    color: #F8FAFC;
+    font-weight: bold;
+}

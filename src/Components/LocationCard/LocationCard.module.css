@@ -1,0 +1,31 @@
+.card {
+    width: 70%;
+    height: 88.5%;
+    max-height: 100%;
+    border-radius: 20px 0px 0px 20px;
+    padding: 20px;
+    background-color: #6366F1;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 100px;
+    margin: 0;
+    color: #F8FAFC;
+}
+
+.region {
+    font-weight: bold;
+    font-size: 50px;
+    margin: 0;
+    margin-left: 5px;
+    color: #F8FAFC;
+}
+
+.country {
+    font-weight: bold;
+    font-size: 35px;
+    margin: 0;
+    margin-left: 7px;
+    color: #F8FAFC;
+}

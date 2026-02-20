@@ -1,0 +1,23 @@
+.card {
+    width: 30%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #6366F1;
+}
+
+.windSpeed {
+    font-weight: bold;
+    font-size: 100px;
+    margin: 0;
+    color: #F8FAFC;
+}
+
+.header {
+    margin: 0;
+    font-weight: bold;
+    font-size: 30px;
+    color: #F8FAFC;
+}
