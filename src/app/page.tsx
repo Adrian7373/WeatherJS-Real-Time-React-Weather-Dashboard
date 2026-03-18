@@ -67,6 +67,7 @@ export default function Home() {
 
   const [weatherData, setWeatherData] = useState<Response | null>(null);
   const [city, setCity] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     if (city) {
@@ -84,9 +85,9 @@ export default function Home() {
   }, [city]);
 
   useEffect(() => {
-    const fetchInitialWeather = async (lat, long) => {
+    const fetchInitialWeather = async (lat: number, long: number) => {
       try {
-        const response = await fetch(`https://api.weatherapi.com/v1/current.json?q=${lat},${long}&key={YOUR_API_KEY_HERE}`);
+        const response = await fetch(`https://api.weatherapi.com/v1/current.json?q=${lat},${long}&key=892bd718bae44174a8424529251310`);
         const data = await response.json();
         setWeatherData(data);
       } catch (err) {
@@ -96,7 +97,7 @@ export default function Home() {
 
     const getCoordinates = () => {
       if (!navigator.geolocation) {
-        setError: Error("Geolocation not supported by browser.")
+        setError("Geolocation not supported by browser.")
         return
       }
       navigator.geolocation.getCurrentPosition(
@@ -104,14 +105,14 @@ export default function Home() {
           fetchInitialWeather(position.coords.latitude, position.coords.longitude);
         },
         (err) => {
-          setError: Error(err.message);
+          setError(err.message);
         }
       )
     }
     getCoordinates()
   }, []);
 
-  const searchCity = (cityName) => {
+  const searchCity = (cityName: string) => {
     setCity(cityName);
   }
 
@@ -123,28 +124,26 @@ export default function Home() {
             searchCity={searchCity}
           />
           <div className={style.locTemp}>
-            <LocationCard
-              weatherData={weatherData.location}
-            />
+            <LocationCard {...weatherData.location} />
             <TemperatureCard
               temperature={weatherData.current.temp_c}
             />
           </div>
           <HumidityCard
-            weatherData={weatherData.current.humidity}
+            humidity={weatherData.current.humidity}
           />
-          <ConditionCard
-            weatherData={weatherData.current.condition}
-          />
+          <ConditionCard {...weatherData.current.condition} />
           <WindSpeedCard
             windspeed={weatherData.current.wind_kph}
           />
+          {error && <p>{error}</p>}
         </>
       ) : (
         <div>
           <SearchBar
             searchCity={searchCity}
           />
+          {error && <p>{error}</p>}
         </div>
       )}
     </div>

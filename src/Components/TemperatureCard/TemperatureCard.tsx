@@ -1,6 +1,10 @@
 import style from "./TemperatureCard.module.css"
 
-export default function TemperatureCard(temperature: number) {
+interface TemperatureCardProps {
+    temperature: number;
+}
+
+export default function TemperatureCard({ temperature }: TemperatureCardProps) {
     return (
         <div className={style.card}>
             <p className={style.tempText}>{temperature}°C</p>
