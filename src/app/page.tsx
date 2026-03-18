@@ -72,7 +72,7 @@ export default function Home() {
     if (city) {
       const fetchWeather = async () => {
         try {
-          const response = await fetch(`https://api.weatherapi.com/v1/current.json?q=${city}&key={YOUR_API_KEY_HERE}`);
+          const response = await fetch(`https://api.weatherapi.com/v1/current.json?q=${city}&key=892bd718bae44174a8424529251310`);
           const data = await response.json();
           setWeatherData(data);
         } catch (err) {
