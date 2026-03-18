@@ -1,11 +1,15 @@
 import { useState } from "react";
 import style from "./SearchBar.module.css";
 
-export default function SearchBar({ searchCity }) {
+interface SearchBarProps {
+    searchCity: (cityInput: string) => void;
+}
 
-    const [cityInput, setCityInput] = useState("");
+export default function SearchBar({ searchCity }: SearchBarProps) {
 
-    const pressEnter = (e) => {
+    const [cityInput, setCityInput] = useState<string>("");
+
+    const pressEnter = (e: React.KeyboardEvent) => {
         if (e.key === "Enter") {
             e.preventDefault();
             searchCity(cityInput);

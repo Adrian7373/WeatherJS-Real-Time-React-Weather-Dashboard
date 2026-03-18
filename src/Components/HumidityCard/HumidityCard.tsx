@@ -1,10 +1,10 @@
 import style from "./HumidityCard.module.css"
 
-export default function HumidityCard({ weatherData }) {
+export default function HumidityCard(humidity: number) {
     return (
         <div className={style.card}>
             <p className={style.header}>Humidity</p>
-            <p className={style.humidityText}>{weatherData.current.humidity}%</p>
+            <p className={style.humidityText}>{humidity}%</p>
         </div>
     )
 }
